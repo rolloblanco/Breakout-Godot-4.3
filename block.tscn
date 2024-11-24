@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhebwb28c72jq"]
+
+[ext_resource type="Script" path="res://Scripts/Block.cs" id="1_041ct"]
+[ext_resource type="Texture2D" uid="uid://bqvsjedslhi7k" path="res://Art/brick.png" id="1_wmk7r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hn4pc"]
+size = Vector2(32, 16)
+
+[node name="StaticBody2D" type="StaticBody2D" node_paths=PackedStringArray("MySprite")]
+position = Vector2(16, 8)
+script = ExtResource("1_041ct")
+MySprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wmk7r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hn4pc")

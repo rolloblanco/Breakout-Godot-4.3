@@ -1,0 +1,92 @@
+[gd_scene load_steps=11 format=3 uid="uid://qmgvm6aq624p"]
+
+[ext_resource type="Script" path="res://Scripts/Paddle.cs" id="1_qhj5r"]
+[ext_resource type="Script" path="res://Scripts/Main.cs" id="1_xs034"]
+[ext_resource type="Texture2D" uid="uid://bonx4chfn21lo" path="res://Art/paddle.png" id="2_o2i0f"]
+[ext_resource type="Script" path="res://Scripts/Ball.cs" id="4_4kbf2"]
+[ext_resource type="Texture2D" uid="uid://bsa8cuqhy8lf0" path="res://Art/ball.png" id="4_fpxi3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvvkv"]
+size = Vector2(48, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t8uxr"]
+radius = 6.0
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_3bkf7"]
+b = Vector2(0, 218)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_igilu"]
+b = Vector2(385, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ndeuk"]
+a = Vector2(384, 217)
+b = Vector2(384, -1)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_xs034")
+
+[node name="Paddle" type="CharacterBody2D" parent="."]
+position = Vector2(192, 192)
+script = ExtResource("1_qhj5r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle"]
+shape = SubResource("RectangleShape2D_lvvkv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Paddle"]
+texture = ExtResource("2_o2i0f")
+
+[node name="Ball" type="CharacterBody2D" parent="."]
+position = Vector2(192, 168)
+script = ExtResource("4_4kbf2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
+texture = ExtResource("4_fpxi3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+shape = SubResource("CircleShape2D_t8uxr")
+
+[node name="Left Wall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left Wall"]
+shape = SubResource("SegmentShape2D_3bkf7")
+
+[node name="Top Wall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top Wall"]
+shape = SubResource("SegmentShape2D_igilu")
+
+[node name="Right Wall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right Wall"]
+shape = SubResource("SegmentShape2D_ndeuk")
+
+[node name="Score" type="Label" parent="."]
+texture_filter = 1
+offset_top = 200.0
+offset_right = 384.0
+offset_bottom = 216.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 10
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lives" type="Label" parent="."]
+texture_filter = 1
+offset_top = 200.0
+offset_right = 48.0
+offset_bottom = 216.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 10
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOver" type="Label" parent="."]
+offset_right = 384.0
+offset_bottom = 216.0
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="BallEscaped" from="Ball" to="." method="OnBallEscaped"]

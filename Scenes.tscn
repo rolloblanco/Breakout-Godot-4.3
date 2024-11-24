@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://cg5t28q7irpg7"]
+
+[ext_resource type="Script" path="res://Scenes.cs" id="1_gs0pe"]
+[ext_resource type="PackedScene" uid="uid://fyov57x5oo4v" path="res://menu.tscn" id="2_ofngd"]
+[ext_resource type="PackedScene" uid="uid://qmgvm6aq624p" path="res://main.tscn" id="3_8nwu8"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_gs0pe")
+MenuScene = ExtResource("2_ofngd")
+GameScene = ExtResource("3_8nwu8")
+hello = 10
