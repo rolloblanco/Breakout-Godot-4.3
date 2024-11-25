@@ -11,23 +11,12 @@ public partial class Paddle : CharacterBody2D
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+	public override void _PhysicsProcess(double delta)
 	{
-		if(Input.IsKeyPressed(Key.Left))
-		{
-			float deltaFloat = (float)delta;
-			Velocity = new Vector2(-SPEED, 0);
-		}
-		else if (Input.IsKeyPressed(Key.Right))
-		{
-			float deltaFloat = (float)delta;
-			Velocity = new Vector2(SPEED, 0);
-		}
-		else
-		{
-			Velocity = Vector2.Zero;
-		}
-
+		Vector2 direction = new Vector2(Input.GetAxis("left", "right"), 0);
+		Vector2 velocity = direction * SPEED;
+		
+		Velocity = velocity;
 		MoveAndSlide();
 	}
 

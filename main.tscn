@@ -27,6 +27,7 @@ script = ExtResource("1_xs034")
 
 [node name="Paddle" type="CharacterBody2D" parent="."]
 position = Vector2(192, 192)
+collision_mask = 2
 script = ExtResource("1_qhj5r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle"]
@@ -35,7 +36,7 @@ shape = SubResource("RectangleShape2D_lvvkv")
 [node name="Sprite2D" type="Sprite2D" parent="Paddle"]
 texture = ExtResource("2_o2i0f")
 
-[node name="Ball" type="CharacterBody2D" parent="."]
+[node name="Ball" type="RigidBody2D" parent="."]
 position = Vector2(192, 168)
 script = ExtResource("4_4kbf2")
 
@@ -46,16 +47,19 @@ texture = ExtResource("4_fpxi3")
 shape = SubResource("CircleShape2D_t8uxr")
 
 [node name="Left Wall" type="StaticBody2D" parent="."]
+collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left Wall"]
 shape = SubResource("SegmentShape2D_3bkf7")
 
 [node name="Top Wall" type="StaticBody2D" parent="."]
+collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Top Wall"]
 shape = SubResource("SegmentShape2D_igilu")
 
 [node name="Right Wall" type="StaticBody2D" parent="."]
+collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right Wall"]
 shape = SubResource("SegmentShape2D_ndeuk")

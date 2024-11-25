@@ -34,7 +34,7 @@ public class Utils
             viewportBlocks[blockLocation].Add("X", (blockX % widthRatio) * blockWidth + blockWidth/2); // add width/2 to prevent blocks appearing offscreen
             viewportBlocks[blockLocation].Add("Y", blockY * blockHeight + blockHeight/2); // add height/2 to prevent blocks appearing offscreen
             
-            GD.Print($"I have created a block at ({viewportBlocks[blockLocation]["X"]},{viewportBlocks[blockLocation]["Y"]})");
+            //GD.Print($"I have created a block at ({viewportBlocks[blockLocation]["X"]},{viewportBlocks[blockLocation]["Y"]})");
 
             blockX++;
             if (blockX % widthRatio == 0)

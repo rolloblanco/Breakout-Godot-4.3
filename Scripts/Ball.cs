@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Ball : CharacterBody2D
+public partial class Ball : RigidBody2D
 {
 	[Signal] public delegate void BallEscapedEventHandler(Ball ball);
 	
